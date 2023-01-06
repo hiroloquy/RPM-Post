@@ -67,17 +67,17 @@ if "single_extruder_multi_material" not in settings or \
 
 if "wipe_into_objects" in settings and \
 	settings["wipe_into_objects"] == "1":
-	print >> sys.stderr, "WARNING: Wiping into objects is not supported and may not work as expected/desired."
+	print("WARNING: Wiping into objects is not supported and may not work as expected/desired.", file=sys.stderr)
 	WIPING_OBJECTS = 0
 
 if "wipe_into_infill" in settings and \
 	settings["wipe_into_infill"] == "1":
-	print >> sys.stderr, "WARNING: Wiping into infill is not supported and may not work as expected/desired."
+	print("WARNING: Wiping into infill is not supported and may not work as expected/desired.", file=sys.stderr)
 	WIPING_OBJECTS = 0
 
 if "max_volumetric_speed" in settings:
 	if settings["max_volumetric_speed"] == "0":
-		print >> sys.stderr, "WARNING: Your print max volumetric speed is unconfigured. Using 15mm3/sec"
+		print("WARNING: Your print max volumetric speed is unconfigured. Using 15mm3/sec", file=sys.stderr)
 	else:
 		PRINTER_MAX_VOLUMETRIC = min(float(settings["max_volumetric_speed"]),PRINTER_MAX_VOLUMETRIC)
 
